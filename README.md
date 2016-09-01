@@ -44,10 +44,12 @@
 ##### setting
 ###### catalina.properties
 before style
+
     tomcat.util.scan.StandardJarScanFilter.jarsToScan=\
     log4j-core*.jar,log4j-taglib*.jar,log4javascript*.jar,slf4j-taglib*.jar
 
 after style
+
     tomcat.util.scan.StandardJarScanFilter.jarsToScan=log4j-core*.jar,log4j-taglib*.jar
 
 ###### server.xml
