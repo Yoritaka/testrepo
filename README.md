@@ -54,39 +54,47 @@ after style
 
 ###### server.xml
 before style
+
       <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
 
 after style(add comment out)
+
     <!--
       <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
     -->
 
 before style
+
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
 
 after style
+
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" protocol="AJP/1.3" proxyPort="443" scheme="https" secure="true" />
 
 ###### tomcat8.conf
 before style
+
     # You can pass some parameters to java here if you wish to
     #JAVA_OPTS="-Xminf0.1 -Xmaxf0.3"
     
 
 after style
+
     # You can pass some parameters to java here if you wish to
     #JAVA_OPTS="-Xminf0.1 -Xmaxf0.3"
     JAVA_OPTS="-Xmx6g -verbose:gc -Xloggc:/var/log/tomcat8/gc.log -XX:+PrintGCDetails"
 
 ###### tomcat-users.xml
 before style
+
     <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
     <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
     <user username="role1" password="<must-be-changed>" roles="role1"/>
 
 after style
+
     <user username="tomcat" password="tomcat" roles="tomcat"/>
     <user username="both" password="tomcat" roles="tomcat,role1"/>
     <user username="role1" password="tomcat" roles="role1"/>
